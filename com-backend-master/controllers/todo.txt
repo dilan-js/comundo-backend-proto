@@ -1,0 +1,13 @@
+1) Drop Appointments from the getProfile API call
+-- just want id, token, first name, last name, phone number (formatted and non-formatted), and picture. 
+
+2) Fix profileValidator -- needs to check to see if at least one field is being updated, for example, id, and then firstName || lastName || photo || phoneNumber. 
+If the only field in the req.body is id, then there is no point doing update. 
+
+3) No S3 functionality to fix the user photo update. 
+
+4) submitSalonEmployees -- handle duplicate employees.
+
+5) What happens if a salon has the same phone number as a customer??
+
+6) Remove duplicate days of the week from operating hours. 

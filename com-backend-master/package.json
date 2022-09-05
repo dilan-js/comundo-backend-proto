@@ -1,0 +1,77 @@
+{
+  "name": "com",
+  "version": "1.0.0",
+  "description": "This is the backend API endpoints",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./**/*.js",
+    "dev": "yarn start:dev",
+    "start:dev": "env-cmd -f .env nodemon index.js",
+    "start:inspect": "env-cmd -f .env node --inspect index.js",
+    "start": "node index.js",
+    "test": "yarn lint && env-cmd -f ./__tests__/.env yarn jest --runInBand --no-cache",
+    "test:nolint": "env-cmd -f ./__tests__/.env yarn jest --runInBand --no-cache",
+    "test:tap": "yarn test:nolint --coverage --reporters=jest-tap-reporter"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dilan-js/com-backend.git"
+  },
+  "author": "Dilan Nana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dilan-js/com-backend/issues"
+  },
+  "homepage": "https://github.com/dilan-js/com-backend#readme",
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-jsdoc": "^36.0.7",
+    "jest": "^27.0.6",
+    "jest-tap-reporter": "^1.9.0",
+    "nock": "^13.1.1",
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "@joi/date": "^2.1.0",
+    "aws-sdk": "^2.964.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^9.11.1",
+    "joi": "^17.4.2",
+    "joi-objectid": "^3.0.1",
+    "joi-phone-number": "^5.0.1",
+    "locale": "^0.1.0",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.13.6",
+    "mongoose-plugin-autoinc": "^1.1.9",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "twilio": "^3.66.1"
+  },
+  "jest": {
+    "globalSetup": "<rootDir>/jest.setup.js",
+    "globalTeardown": "<rootDir>/jest.teardown.js",
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "collectCoverageFrom": [
+      "./constants/**/*.js",
+      "./controllers/**/*.js",
+      "./database/**/*.js",
+      "./middlewares/**/*.js",
+      "./routes/**/*.js",
+      "index.js",
+      "!**/test/**",
+      "!**/node_modules/**",
+      "!**/coverage/**",
+      "!**/dist/**"
+    ]
+  }
+}
